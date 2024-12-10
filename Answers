@@ -1,0 +1,530 @@
+
+ 1a. Comparing and contrasting: definite loop vs indefinite loop: Both types of loops are used to execute a block of code repeatedly. Definite loops have a set number of repetitions, while indefinite loops rely on conditions to decide when to stop
+
+1b. comparing and contrasting: for loop vs. while loop: Both help control the flow of a program, allowing repeated execution without rewriting code. For loops are great for situations with a known number of iterations, While loops are more flexible and suited for conditions that determine the number of iterations dynamically.
+
+1c. Comparing and contrasting: interactive loop vs. sentinel loop. Both rely on conditions to determine whether to continue looping or exit. Interactive loops emphasize ongoing user engagement. while sentinel loops rely on a specific value to signal when to stop.
+
+1D. Comparing and contrasting: sentinel loop vs. end-of-file loop: Both can handle varying amounts of input data until a termination condition is met. They are different when it comes to how they determine when to stop looping. sentinel loops rely on a specific input value.  end-of-file-loops rely on reaching the end of a data source.
+
+
+ 2a
+
+
+​p
+	
+
+​q
+	
+
+​R
+	
+
+p and ​Q
+	
+
+​not p
+	
+
+not q​
+	
+
+not p and ​q
+	
+
+​not p or not q
+	
+
+​(p and q)or R
+	
+
+​(P or R) and(Q or R)
+
+​0
+	
+
+​0
+	
+
+​0
+	
+
+​0
+	
+
+​1
+	
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​0
+	
+
+​0
+
+​0
+	
+
+​0
+	
+
+1​
+	
+
+​0
+	
+
+​1
+	
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​1
+	
+
+​1
+
+​0
+	
+
+​1
+	
+
+0
+	
+
+​0
+	
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​1
+	
+
+​0
+	
+
+​0
+
+​0
+	
+
+​1
+	
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​1
+	
+
+​1
+	
+
+​1
+
+​1
+	
+
+​0
+	
+
+​0
+	
+
+0​
+	
+
+​0
+	
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​0
+	
+
+​0
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​0
+	
+
+​0
+	
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​1
+	
+
+​1
+
+​1
+	
+
+​1
+	
+
+​0
+	
+
+​1
+	
+
+​0
+	
+
+​0
+	
+
+​0
+	
+
+​0
+	
+
+​1
+	
+
+​0
+
+​1
+	
+
+​1
+	
+
+​1
+	
+
+​1
+	
+
+​0
+	
+
+​0
+	
+
+​0
+	
+
+​0
+	
+
+​1
+	
+
+​1
+
+# Define a function to evaluate Boolean expressions for all combinations of P, Q, and R
+
+def boolean_expressions():
+
+   # Header for the output
+
+   print(f"{'P':<5} {'Q':<5} {'R':<5} {'P and Q':<10} {'not P':<10} {'not Q':<10} {'not P and Q':<15} {'not P or not Q':<15} {'(P and Q) or R':<20} {'(P or R) and (Q or R)':<25}")
+
+
+   # Loop through all combinations of P, Q, and R (0 = False, 1 = True)
+
+   for P in [0, 1]:
+
+       for Q in [0, 1]:
+
+           for R in [0, 1]:
+
+               # Calculate intermediate values
+
+               P_and_Q = P and Q
+
+               not_P = not P
+
+               not_Q = not Q
+
+               not_P_and_Q = not_P and Q
+
+               not_P_or_not_Q = not_P or not_Q
+
+               P_and_Q_or_R = P_and_Q or R
+
+               P_or_R_and_Q_or_R = (P or R) and (Q or R)
+
+
+               # Print the results
+
+               print(f"{P:<5} {Q:<5} {R:<5} {P_and_Q:<10} {int(not_P):<10} {int(not_Q):<10} {int(not_P_and_Q):<15} {int(not_P_or_not_Q):<15} {int(P_and_Q_or_R):<20} {int(P_or_R_and_Q_or_R):<25}")
+
+
+# Call the function to execute the program
+
+boolean_expressions()
+
+
+ 2B  Explanation of Intermediate columns:
+
+: P and Q: True(1) only when both P and Q are true.
+
+:Not P: The negation of P.
+
+: Not q: the Negation of Q.
+
+: Not p and q: True when p is false and q is true.
+
+: Not p or not q: True when either P or q is false.
+
+: (P and Q) or R: True when either P and Q are both true, or R is true.
+
+: (P or R) and (Q or R): True when either P or R is true, and either Q or R True.
+
+(Ps. didn't know if this was to be coded or not).
+
+
+3a:
+
+# Function to calculate the sum of the first n counting numbers
+
+def sum_of_n_numbers(n):
+
+   total_sum = 0 # Initialize sum to 0
+
+   count = 1     # Start counting from 1
+
+
+   # Use a while loop to sum the first n counting numbers
+
+   while count <= n:
+
+       total_sum += count # Add the current count to total_sum
+
+       count += 1         # Move to the next counting number
+
+
+   return total_sum
+
+
+# Main function to execute the program
+
+def main():
+
+   # Prompt the user for input
+
+   n = int(input("Enter a positive integer n: "))
+
+
+   # Check if the input is positive
+
+   if n <= 0:
+
+       print("Please enter a positive integer.")
+
+       return
+
+
+   # Calculate the sum and print the result
+
+   result = sum_of_n_numbers(n)
+
+   print(f"The sum of the first {n} counting numbers is: {result}")
+
+
+# Call the main function to run the program
+
+if __name__ == "__main__":
+
+   main()
+
+ 3C: 
+
+total_sum = 0 # Initialize the sum to 0
+
+
+while True: # Start an infinite loop
+
+   number = int(input("Enter a number (999 to stop): ")) # Prompt for user input
+
+
+   if number == 999: # Check if the user entered 999
+
+       break # Exit the loop if 999 is entered
+
+
+   total_sum += number # Add the entered number to the total sum
+
+
+# Output the total sum
+
+print(f"The total sum of the entered numbers is: {total_sum}")
+
+
+4:
+
+# Function to compute the nth Fibonacci number
+
+def fibonacci(n):
+
+   if n <= 0:
+
+       return "Please enter a positive integer."
+
+   elif n == 1 or n == 2:
+
+       return 1 # The first two Fibonacci numbers are 1
+
+   else:
+
+       a, b = 1, 1 # Initialize the first two Fibonacci numbers
+
+       for _ in range(2, n): # Loop to calculate Fibonacci numbers up to n
+
+           a, b = b, a + b # Update to the next Fibonacci number
+
+       return b # Return the nth Fibonacci number
+
+
+# Main function to execute the program
+
+def main():
+
+   n = int(input("Enter the position of the Fibonacci number you want to find (positive integer): "))
+
+
+   # Calculate the nth Fibonacci number
+
+   result = fibonacci(n)
+
+
+   # Output the result
+
+   print(f"The {n}th Fibonacci number is: {result}")
+
+
+# Call the main function to run the program
+
+if __name__ == "__main__":
+
+   main()
+
+
+5
+
+# Function to generate the Syracuse (Collatz) sequence
+
+def syracuse_sequence(start):
+
+   sequence = [] # List to hold the sequence
+
+
+   while start != 1: # Continue until we reach 1
+
+       sequence.append(start) # Append the current value to the sequence
+
+       if start % 2 == 0: # Check if the number is even
+
+           start //= 2 # If even, divide by 2
+
+       else: # If odd
+
+           start = 3 * start + 1 # If odd, apply 3x + 1
+
+
+   sequence.append(1) # Append 1 to the sequence
+
+   return sequence # Return the complete sequence
+
+
+# Main function to execute the program
+
+def main():
+
+   # Prompt the user for a starting value
+
+   try:
+
+       start = int(input("Enter a natural number to start the Syracuse sequence: "))
+
+
+       if start <= 0:
+
+           print("Please enter a positive natural number.")
+
+           return
+
+
+       # Generate the Syracuse sequence
+
+       result = syracuse_sequence(start)
+
+
+       # Print the result
+
+       print("The Syracuse sequence starting from", start, "is:")
+
+       print(result)
+
+
+   except ValueError:
+
+       print("Invalid input. Please enter a valid integer.")
+
+
+# Call the main function to run the program
+
+if __name__ == "__main__":
+
+   main()
